@@ -1,5 +1,6 @@
 package com.example.skripsimuhammadiqbal.Crud.CrudCustomer
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -11,6 +12,7 @@ class CrudCustomerActivity : AppCompatActivity(), CrudViewCustomer {
     private lateinit var presenter: PresenterCustomerOne
     private lateinit var binding: ActivityCrudCustomerBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCrudCustomerBinding.inflate(layoutInflater)
@@ -19,7 +21,7 @@ class CrudCustomerActivity : AppCompatActivity(), CrudViewCustomer {
         btnAction()
         presenter = PresenterCustomerOne(this)
         presenter.getData()
-        binding.appbar.tvScreen.text = "List Produk"
+        binding.appbar.tvScreen.text = "List Pelanggan"
 
     }
 
@@ -28,7 +30,7 @@ class CrudCustomerActivity : AppCompatActivity(), CrudViewCustomer {
         binding.rvCustomer.adapter = DataCustomerAdapter(data, object : DataCustomerAdapter.onClickItem {
             override fun clicked(item: DataItemCustomer?) {
                 val bundle = Bundle()
-                bundle.putSerializable("dataItem", item)
+                bundle.putSerializable("dataItemCustomer", item)
                 val intent = Intent(applicationContext, UpdateAddCustomerActivity::class.java)
                 intent.putExtras(bundle)
                 startActivity(intent)
