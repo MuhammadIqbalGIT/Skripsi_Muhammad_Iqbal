@@ -1,0 +1,86 @@
+package com.example.skripsimuhammadiqbal.Crud.CrudCustomer
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.skripsimuhammadiqbal.Crud.CrudActivity
+import com.example.skripsimuhammadiqbal.Crud.DataItem
+import com.example.skripsimuhammadiqbal.databinding.ActivityUpdateAddCustomerBinding
+
+class UpdateAddCustomerActivity : AppCompatActivity(), CrudViewCustomer {
+    private lateinit var presenter: PresenterCustomerTwo
+    private lateinit var binding: ActivityUpdateAddCustomerBinding
+
+    @SuppressLint("SetTextI18n")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityUpdateAddCustomerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        fullScreen()
+
+        presenter = PresenterCustomerTwo(this)
+        val itemDataItem = intent.getSerializableExtra("dataItemCustomer")
+
+        if (itemDataItem == null) {
+            binding.btnAction.text = "Tambah"
+            binding.btnAction.setOnClickListener() {
+                presenter.addData(
+                    binding.etNameCustomer.text.toString(),
+                    binding.etPhoneCustomer.text.toString(),
+                    binding.etEmailCustomer.text.toString(),
+                    binding.etAddressCustomer.text.toString()
+                )
+            }
+        } else if (itemDataItem != null) {
+            binding.btnAction.text = "Update"
+            val item = itemDataItem as DataItemCustomer?
+            binding.etNameCustomer.setText(item?.namaPelanggan.toString())
+            binding.etPhoneCustomer.setText(item?.handphone.toString())
+            binding.etAddressCustomer.setText(item?.alamatPelanggan)
+            binding.etEmailCustomer.setText(item?.email)
+            binding.btnAction.setOnClickListener() {
+                presenter.updateData(
+                    item?.idPelanggan ?: "",
+                    binding.etNameCustomer.text.toString(),
+                    binding.etPhoneCustomer.text.toString(),
+                    binding.etAddressCustomer.text.toString(),
+                    binding.etEmailCustomer.text.toString()
+                )
+                finish()
+            }
+        }
+    }
+
+
+    private fun fullScreen() {
+        //HIDE ACTION BAR SAMA NAMBAHIN FULLSCREEN
+        supportActionBar?.hide()
+        // setFullScreen(window)
+        //  lightStatusBar(window)
+    }
+
+    override fun onSuccessAdd(msg: String) {
+        startActivity(Intent(this, CrudCustomerActivity::class.java))
+        finish()
+    }
+
+    override fun onErrorAdd(msg: String) {}
+
+    override fun onSuccessUpdate(msg: String) {
+        startActivity(Intent(this, CrudCustomerActivity::class.java))
+        finish()
+    }
+
+    override fun onErrorupdate(msg: String) {
+
+    }
+
+    override fun onSuccessGet(data: List<DataItemCustomer>?) {}
+
+    override fun onFailedGet(msg: String) {}
+
+    override fun onSuccessDelete(msg: String) {}
+
+    override fun onErrorDelete(msg: String) {}
+}

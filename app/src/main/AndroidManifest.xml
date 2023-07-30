@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,19 +12,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.SkripsiMuhammadIqbal"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".Crud.CrudCustomer.UpdateAddCustomerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Crud.CrudCustomer.CrudCustomerActivity"
+            android:exported="false" />
+
         <activity
             android:name=".Crud.CrudActivity"
             android:exported="false">
         </activity>
-
         <activity
             android:name=".Crud.UpdateAddActivity"
             android:exported="false">
-        </activity>
 
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

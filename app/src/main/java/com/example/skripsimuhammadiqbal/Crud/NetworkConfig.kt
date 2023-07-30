@@ -1,5 +1,7 @@
 package com.example.skripsimuhammadiqbal.Crud
 
+import com.example.skripsimuhammadiqbal.Crud.CrudCustomer.ResultCustomer
+import com.example.skripsimuhammadiqbal.Crud.CrudCustomer.ResultStatusCustomer
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -71,4 +73,45 @@ interface StaffService {
     @FormUrlEncoded
     @POST("deleteStaff")
     fun deleteStaff(@Field("id") id: String?): Call<ResultStatus>
+
+
+
+
+
+    //TODO : CRUD CUSTOMER
+
+
+    //fungsi create data
+    @FormUrlEncoded
+    @POST("addCustomer")
+    fun addCustomer(
+        @Field("name") name: String,
+        @Field("hp") hp: String,
+        @Field("alamat") alamat: String,
+        @Field("email") email: String
+    ): Call<ResultStatusCustomer>
+
+    //fungsi get data
+    @GET("getDataCustomer")
+    fun getDataCustomer(): Call<ResultCustomer>
+
+    //fungsi update data
+    @FormUrlEncoded
+    @POST("updateCustomer")
+    fun updateCustomer(
+        @Field("id") id: String,
+        @Field("name") name: String,
+        @Field("hp") hp: String,
+        @Field("alamat") alamat: String,
+        @Field("email") email: String
+    ): Call<ResultStatusCustomer>
+
+    //fungsi delete
+    @FormUrlEncoded
+    @POST("deleteCustomer")
+    fun deleteCustomer(@Field("id") id: String?): Call<ResultStatusCustomer>
+
+
+
+
 }
