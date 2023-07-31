@@ -57,10 +57,12 @@ class CrudCustomerActivity : AppCompatActivity(), CrudViewCustomer {
             finish()
         }
         binding.appbar.ivBack.setOnClickListener {
+            @Suppress("DEPRECATION")
             onBackPressed()
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val fragmentBackStackEntryCount = supportFragmentManager.backStackEntryCount
         if (fragmentBackStackEntryCount > 0) {
