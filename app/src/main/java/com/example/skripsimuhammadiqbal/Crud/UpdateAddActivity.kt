@@ -17,12 +17,14 @@ class UpdateAddActivity : AppCompatActivity(), CrudView {
         binding = ActivityUpdateAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
         fullScreen()
+        initBack()
 
         presenter = Presenter2(this)
         val itemDataItem = intent.getSerializableExtra("dataItem")
 
         if (itemDataItem == null) {
             binding.btnAction.text = "Tambah"
+            binding.appbar.tvScreen.text = "Tambah Produk"
             binding.btnAction.setOnClickListener() {
                 presenter.addData(
                     binding.etName.text.toString(),
@@ -31,6 +33,7 @@ class UpdateAddActivity : AppCompatActivity(), CrudView {
                 )
             }
         } else if (itemDataItem != null) {
+            binding.appbar.tvScreen.text= "Update Produk"
             binding.btnAction.text = "Update"
             val item = itemDataItem as DataItem?
             binding.etName.setText(item?.staffName.toString())
@@ -49,12 +52,28 @@ class UpdateAddActivity : AppCompatActivity(), CrudView {
     }
 
 
+    private fun initBack () {
+        binding.appbar.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+
     private fun fullScreen() {
         //HIDE ACTION BAR SAMA NAMBAHIN FULLSCREEN
         supportActionBar?.hide()
        // setFullScreen(window)
       //  lightStatusBar(window)
     }
+    override fun onBackPressed() {
+        val fragmentBackStackEntryCount = supportFragmentManager.backStackEntryCount
+        if (fragmentBackStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
 
     override fun onSuccessAdd(msg: String) {
         startActivity(Intent(this, CrudActivity::class.java))

@@ -16,23 +16,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".OnBoarding.WalkThroughActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Crud.CrudCustomer.UpdateAddCustomerActivity"
             android:exported="false" />
         <activity
             android:name=".Crud.CrudCustomer.CrudCustomerActivity"
             android:exported="false" />
-
         <activity
             android:name=".Crud.CrudActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Crud.UpdateAddActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

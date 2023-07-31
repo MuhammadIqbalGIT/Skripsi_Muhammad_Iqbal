@@ -15,13 +15,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
+    <View
+        android:id="@+id/view5"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        android:layout_height="2dp"
+        android:background="@drawable/shadow_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar">
+        app:layout_constraintTop_toBottomOf="@+id/appbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view5">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCategory"
@@ -33,6 +43,16 @@
             tools:listitem="@layout/item_data"></androidx.recyclerview.widget.RecyclerView>
 
     </androidx.core.widget.NestedScrollView>
+
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/shadow_drop"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,10 +68,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnTambah"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            style="@style/CustomButtonPrimary"
             android:layout_alignParentBottom="true"
             android:text="Form Tambah Produk"
-            android:layout_marginBottom="30dp"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"

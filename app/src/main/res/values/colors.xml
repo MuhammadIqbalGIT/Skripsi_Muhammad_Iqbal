@@ -16,4 +16,7 @@
     <color name="bottom_nav_selected_item">#20409A</color>
     <color name="fragment_bg_color">#FDF8F4</color>
     <color name="mediumGray">#EDEDED</color>
+
+
+    <color name="colorPrimaryBlue">#0B1F8F</color>
 </resources>

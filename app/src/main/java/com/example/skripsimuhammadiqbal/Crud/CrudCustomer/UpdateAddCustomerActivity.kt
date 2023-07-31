@@ -18,11 +18,13 @@ class UpdateAddCustomerActivity : AppCompatActivity(), CrudViewCustomer {
         binding = ActivityUpdateAddCustomerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         fullScreen()
+        initBack()
 
         presenter = PresenterCustomerTwo(this)
         val itemDataItem = intent.getSerializableExtra("dataItemCustomer")
 
         if (itemDataItem == null) {
+            binding.appbar.tvScreen.text = "Tambah Pelanggan"
             binding.btnAction.text = "Tambah"
             binding.btnAction.setOnClickListener() {
                 presenter.addData(
@@ -34,6 +36,7 @@ class UpdateAddCustomerActivity : AppCompatActivity(), CrudViewCustomer {
             }
         } else if (itemDataItem != null) {
             binding.btnAction.text = "Update"
+            binding.appbar.tvScreen.text = "Update Pelanggan"
             val item = itemDataItem as DataItemCustomer?
             binding.etNameCustomer.setText(item?.namaPelanggan.toString())
             binding.etPhoneCustomer.setText(item?.handphone.toString())
@@ -49,6 +52,21 @@ class UpdateAddCustomerActivity : AppCompatActivity(), CrudViewCustomer {
                 )
                 finish()
             }
+        }
+    }
+
+
+    private fun initBack () {
+        binding.appbar.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
+    override fun onBackPressed() {
+        val fragmentBackStackEntryCount = supportFragmentManager.backStackEntryCount
+        if (fragmentBackStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
         }
     }
 

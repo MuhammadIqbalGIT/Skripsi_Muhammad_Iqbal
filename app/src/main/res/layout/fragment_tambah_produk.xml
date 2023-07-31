@@ -24,7 +24,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTambahProduk"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        style="@style/CustomButtonPrimary"
+        android:layout_height="wrap_content"
         android:text="Tambah Produk"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

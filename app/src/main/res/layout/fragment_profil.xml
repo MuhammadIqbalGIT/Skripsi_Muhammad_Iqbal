@@ -23,8 +23,9 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTambahCustomer"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="  Tambah Pelanggan"
+        android:layout_height="wrap_content"
+        style="@style/CustomButtonPrimary"
+        android:text="Tambah Pelanggan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nama Pegawai"
+                    tools:text="Pipa Rucika Wavin 1 Inchi"
                     android:layout_marginLeft="10dp"
                     android:id="@+id/tvName" />
             </LinearLayout>
@@ -67,11 +68,13 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHapus"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
+                style="@style/CustomButtonPrimaryOutlined"
                 android:layout_marginTop="12dp"
                 android:text="Hapus Produk"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"
+                android:textColor="#0B1F8F"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
