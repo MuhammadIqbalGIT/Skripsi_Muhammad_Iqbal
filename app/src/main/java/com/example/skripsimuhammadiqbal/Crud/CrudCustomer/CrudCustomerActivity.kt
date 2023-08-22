@@ -73,12 +73,12 @@ class CrudCustomerActivity : AppCompatActivity(), CrudViewCustomer {
     }
 
     override fun onFailedGet(msg: String) {
-        // Implementasi fungsi onFailedGet
-        // ...
+
     }
 
     override fun onSuccessDelete(msg: String) {
         presenter.getData()
+        Toast.makeText(this, "Berhasil Menghapus data pelanggan", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorDelete(msg: String) {
@@ -86,8 +86,7 @@ class CrudCustomerActivity : AppCompatActivity(), CrudViewCustomer {
     }
 
     override fun onSuccessAdd(msg: String) {
-        // Implementasi fungsi onSuccessAdd
-        // ...
+
     }
 
     override fun onErrorAdd(msg: String) {
@@ -96,8 +95,7 @@ class CrudCustomerActivity : AppCompatActivity(), CrudViewCustomer {
     }
 
     override fun onSuccessUpdate(msg: String) {
-        // Implementasi fungsi onSuccessUpdate
-        // ...
+
     }
 
     override fun onErrorupdate(msg: String) {

@@ -3,6 +3,7 @@ package com.example.skripsimuhammadiqbal.Crud.CrudCustomer
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.skripsimuhammadiqbal.Crud.CrudActivity
 import com.example.skripsimuhammadiqbal.Crud.DataItem
@@ -81,6 +82,7 @@ class UpdateAddCustomerActivity : AppCompatActivity(), CrudViewCustomer {
     override fun onSuccessAdd(msg: String) {
         startActivity(Intent(this, CrudCustomerActivity::class.java))
         finish()
+        Toast.makeText(this, "Berhasil Menambahkan data pelanggan", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorAdd(msg: String) {}
@@ -88,6 +90,7 @@ class UpdateAddCustomerActivity : AppCompatActivity(), CrudViewCustomer {
     override fun onSuccessUpdate(msg: String) {
         startActivity(Intent(this, CrudCustomerActivity::class.java))
         finish()
+        Toast.makeText(this, "Berhasil Mengupdate data pelanggan", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorupdate(msg: String) {
